@@ -1,4 +1,5 @@
 import Info from "../Home/Info";
+import Footer from "../Shared/Footer/Footer";
 import Banner from "./Banner/Banner";
 import Contact from "./Contact/Contact";
 import ExcetionalDental from "./ExcetionalDental/ExcetionalDental";
@@ -16,6 +17,7 @@ const Home = () => {
           <HomeAppointment></HomeAppointment>
           <Testimonials></Testimonials>
           <Contact></Contact>
+          <Footer></Footer>
         </div>
     );
 };

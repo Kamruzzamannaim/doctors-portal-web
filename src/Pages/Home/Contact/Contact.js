@@ -14,8 +14,8 @@ const Contact = () => {
                 <input type="text"className="input" name="" id=""placeholder="Email address" />
                 <input className='input my-4' type="text" name="" id=""placeholder="Subject" />
                 <textarea className='input' placeholder="Your message" name="" id=""></textarea>
-                <div class="form-control mt-6">
-              <button class="btn btn-primary w-1/3 mx-auto mb-16">Submit</button>
+                <div className="form-control mt-6">
+              <button className="btn btn-primary w-1/3 mx-auto mb-16">Submit</button>
               </div>
                 </form>
             </div>

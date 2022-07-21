@@ -1,16 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {
+  QueryClient,
+  QueryClientProvider
+} from "@tanstack/react-query";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from './App';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+// creating new client for using react query
+const queryClient = new QueryClient();
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
- <BrowserRouter>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode></BrowserRouter>
+  <BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+    </QueryClientProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
