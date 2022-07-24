@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from '../../hooks/useToken';
 import Loading from '../Shared/Loading';
 
 const Signup = () => {
@@ -19,11 +20,17 @@ const Signup = () => {
       handleSubmit,
     } = useForm();
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token]=useToken(gUser|| user);
     const navigate=useNavigate();
+    const location=useLocation();
+    let from=location.state?.from?.pathname||'/';
     let signInError;
-    if (gUser|| user){
-      navigate('/appoinment');
+   useEffect(()=>{
+    if(token){
+      navigate(from,{replace:true});
     }
+   },[from,navigate,token]);
+    
     if(loading || gLoading || updating){
       return <Loading></Loading>
     }

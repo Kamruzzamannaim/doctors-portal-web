@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from '../../hooks/useToken';
 import Loading from "../Shared/Loading";
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -17,12 +18,18 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const navbar=useNavigate();
+  const navigate=useNavigate();
+  const location =useLocation();
+  let from=location.state?.from?.pathname||'/';
   let signInError;
-  if (gUser|| user) {
-    console.log(gUser||user);
-    navbar('/appoinment')
-  }
+  const [token]=useToken(gUser || user);
+ useEffect(()=>{
+  if(token){
+    navigate(from,{replace:true});
+    console.log('ki somossa')
+}
+ },[from,navigate,token])
+ 
   if(loading || gLoading){
     return <Loading></Loading>
   }
