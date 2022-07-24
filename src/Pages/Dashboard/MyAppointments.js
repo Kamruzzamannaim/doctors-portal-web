@@ -10,7 +10,7 @@ const MyAppointments = () => {
     const navigate= useNavigate()
  
     useEffect(()=>{
-        if(user){fetch(`http://localhost:5000/booking?patient=${user?.email}`,{
+        if(user){fetch(`https://infinite-ocean-10097.herokuapp.com/booking?patient=${user?.email}`,{
         method:"GET",
         headers:{
           "authorization":`bearer ${localStorage.getItem('accessToken')}`

@@ -7,7 +7,7 @@ import RowUser from "./RowUser";
 const AllUsers = () => {
  
   const { data: users, isLoading,refetch } = useQuery(["users"], () =>
-    fetch("http://localhost:5000/user",{
+    fetch("https://infinite-ocean-10097.herokuapp.com/user",{
         method:"GET",
         headers:{
             "authorization":`bearer ${localStorage.getItem('accessToken')}`

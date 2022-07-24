@@ -19,7 +19,7 @@ const AppointmentModal = ({treatment,date,setTreatment,refetch}) => {
         patientName:user.displayName,
         phone:event.target.phone.value
       }
-      fetch('http://localhost:5000/booking',{
+      fetch('https://infinite-ocean-10097.herokuapp.com/booking',{
         method:'POST',
         headers:{
           "Content-Type":'application/json'

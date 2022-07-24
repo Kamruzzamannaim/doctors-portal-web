@@ -9,7 +9,7 @@ const AvailableAppointments = ({date}) => {
     // const [services,setServices]=useState([]);
     const [treatment,setTreatment]=useState(null);
     const formattedDate=format(date,'PP');
-const{data: services,isLoading,refetch}=useQuery(['services',formattedDate],()=>fetch(`http://localhost:5000/available?date=${formattedDate}`).then(res=>res.json())
+const{data: services,isLoading,refetch}=useQuery(['services',formattedDate],()=>fetch(`https://infinite-ocean-10097.herokuapp.com/available?date=${formattedDate}`).then(res=>res.json())
 )
 
 if(isLoading){
