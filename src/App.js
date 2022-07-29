@@ -10,6 +10,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import ManageDoctor from "./Pages/Dashboard/ManageDoctor";
 import MyAppointments from './Pages/Dashboard/MyAppointments';
 import MyReview from './Pages/Dashboard/MyReview';
+import Payment from "./Pages/Dashboard/Payment";
 import Contact from './Pages/Home/Contact/Contact';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -39,6 +40,7 @@ function App() {
         <Route path='allUsers' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
         <Route path='addDoctor' element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route>
         <Route path='manageDoctor' element={<RequireAdmin><ManageDoctor></ManageDoctor></RequireAdmin>}></Route>
+        <Route path='payment/:id' element={<Payment></Payment>}></Route>
        </Route>
    </Routes>
    <ToastContainer />
